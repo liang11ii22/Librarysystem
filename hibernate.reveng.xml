@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+	<table name="ADMIN" schema="LKJ" class="com.dtos.Admin">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="DEPARTMENT" schema="LKJ" class="com.dtos.Depart">
+		<primary-key>
+			<generator class="in"></generator>
+		</primary-key>
+	</table>
+	<table name="USERS" schema="LKJ" class="com.dtos.Users">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="CATEGORY" schema="LKJ" class="com.dtos.Category">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="BOOK" schema="LKJ" class="com.dtos.Book">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="RETURN_BORROW" schema="LKJ"
+		class="com.dtos.ReturnBorrow">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="LIBRARY" schema="LKJ" class="com.dtos.Library">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="LIBRARYS" schema="LKJ" class="com.dtos.Librarys">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+<table name="SCHOOLLIB" schema="LKJ" class="com.dtos.SchoolLib">
+	<primary-key>
+		<generator class="increment"></generator>
+	</primary-key>
+</table>
+</hibernate-reverse-engineering>

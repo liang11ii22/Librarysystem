@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<package name="Admin" extends="struts-default">
+
+
+		<action name="login_*" class="com.action.LoginAction" method="{1}">
+			<result name="adminlogin">/back/index.jsp</result>
+			<result name="loginerror">/back/login.jsp</result>
+		</action>
+		<action name="Library_*" class="com.action.LibraryAction" method="{1}">
+			<result name="liblist">/back/librarylist.jsp</result>
+			<result name="libdetail">/back/librarydetail.jsp</result>
+		</action>
+		<action name="Book_*" class="com.action.BookAction" method="{1}">
+			<result name="addbookjump">/back/addbook.jsp</result>
+			<result name="booklist" type="chain">Book_showBookList</result>
+			<result name="showbooklist">/back/booktable.jsp</result>
+			<result name="bookdetails">/back/bookdetail.jsp</result>
+			<result name="singbooklist">/back/singlebooklist.jsp</result>
+			<result name="uodatebookdetail">/back/updatebook.jsp</result>
+		</action>
+	</package>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</struts>    
