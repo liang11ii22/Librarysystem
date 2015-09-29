@@ -12,7 +12,7 @@ public class Admin implements java.io.Serializable {
 
 	// Fields
 
-	private BigDecimal id;
+	private Integer id;
 	private String name;
 	private String password;
 	private String description;
@@ -39,16 +39,18 @@ public class Admin implements java.io.Serializable {
 
 	// Property accessors
 
-	public BigDecimal getId() {
-		return this.id;
-	}
-
-	public void setId(BigDecimal id) {
-		this.id = id;
-	}
+	
 
 	public String getName() {
 		return this.name;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public void setName(String name) {

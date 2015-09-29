@@ -23,15 +23,15 @@ public class AdminDaoImplTest {
 //		System.out.println(a1.getDescription());
 //	}
 
-	@Test
-	public void testAdd() {
-		Admin a = new Admin();
-		a.setId(3);
-		a.setName("cc");
-		a.setPassword("123");
-		a.setDescription("abc");
-		adao.add(a);
-	}
+//	@Test
+//	public void testAdd() {
+//		Admin a = new Admin();
+//		a.setId(3);
+//		a.setName("cc");
+//		a.setPassword("123");
+//		a.setDescription("abc");
+//		adao.add(a);
+//	}
 
 //	@Test
 //	public void testDel() {
