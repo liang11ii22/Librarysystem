@@ -21,6 +21,11 @@
 			<result name="singbooklist">/back/singlebooklist.jsp</result>
 			<result name="uodatebookdetail">/back/updatebook.jsp</result>
 		</action>
+		<action name="Announce_*" class="com.action.AnnounceAction" method="{1}">
+			<result name="mainpage">/back/index.jsp</result>
+			<result name="announcelist">/back/anntable.jsp</result>
+			<result name="anndetail">/back/anndetails.jsp</result>
+		</action>
 	</package>
 
 

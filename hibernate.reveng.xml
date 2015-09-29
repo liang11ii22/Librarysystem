@@ -44,7 +44,12 @@
 			<generator class="increment"></generator>
 		</primary-key>
 	</table>
-<table name="SCHOOLLIB" schema="LKJ" class="com.dtos.SchoolLib">
+	<table name="SCHOOLLIB" schema="LKJ" class="com.dtos.SchoolLib">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+<table name="ANNOUNCE" schema="LKJ" class="com.dtos.Announce">
 	<primary-key>
 		<generator class="increment"></generator>
 	</primary-key>

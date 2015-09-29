@@ -203,22 +203,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <!-- content starts -->
             
 
-<div>
-    <ul class="breadcrumb">
-        <li>
-            <a href="#">Home</a>
-        </li>
-        <li>
-            <a href="#">Blank</a>
-        </li>
-    </ul>
-</div>
+
 
 <div class="row">
     <div class="box col-md-12">
         <div class="box-inner">
             <div class="box-header well" data-original-title="">
-                <h2><i class="glyphicon glyphicon-star-empty"></i> Blank</h2>
+                <h2><i class="glyphicon glyphicon-star-empty"></i> Library Information</h2>
 
                 <div class="box-icon">
                     <a href="#" class="btn btn-setting btn-round btn-default"><i
@@ -231,7 +222,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="box-content">
                 <!-- Library detail start -->
-                
+                <form action="Library_showAllLibrary.action" method="post">
+                 <div class="row">
+                   <h3><p class="center">Welcome To  ${lib.name }</p></h3>
+                     <div class="col-md-3">
+                     
+                    <img src="${lib.attachment }" width="160px" height="200px" class="center"/>
+                    </div>
+                  <div class="col-md-9">
+                    
+                    <p class="text-left"><strong>Open Time:</strong> ${lib.opentime }</p>
+                    <p class="text-left">${lib.description }</p>
+                    <p class="text-justify"><strong>Location:</strong> ${lib.location }</p>
+                    <!-- MAP By CunLiang -->
+                    
+                    
+                    <!-- MAP End -->
+                    <button type="submit" class="btn btn-info" >Return</button>
+                  </div>
+                    </div>
+                    
+                    </form>
+                <!-- Library detail end -->
             </div>
         </div>
     </div>

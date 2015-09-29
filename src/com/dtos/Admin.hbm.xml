@@ -6,7 +6,7 @@
 -->
 <hibernate-mapping>
     <class name="com.dtos.Admin" table="ADMIN" schema="LKJ">
-        <id name="id" type="java.lang.Integer">
+        <id name="id" type="big_decimal">
             <column name="ID" precision="22" scale="0" />
             <generator class="increment"></generator>
         </id>
@@ -17,7 +17,19 @@
             <column name="PASSWORD" length="20" />
         </property>
         <property name="description" type="string">
-            <column name="DESCRIPTION" length="20" />
+            <column name="DESCRIPTION" length="500" />
         </property>
+        <property name="attachment" type="string">
+            <column name="ATTACHMENT" length="100" />
+        </property>
+        <property name="brief" type="string">
+            <column name="BRIEF" length="250" />
+        </property>
+        <set name="announces" inverse="true">
+            <key>
+                <column name="AID" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.dtos.Announce" />
+        </set>
     </class>
 </hibernate-mapping>

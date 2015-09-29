@@ -14,22 +14,22 @@
             <column name="NAME" length="20" />
         </property>
         <property name="description" type="java.lang.String">
-            <column name="DESCRIPTION" length="20" />
+            <column name="DESCRIPTION" length="1000" />
         </property>
         <property name="brief" type="java.lang.String">
-            <column name="BRIEF" length="20" />
+            <column name="BRIEF" length="500" />
         </property>
         <property name="opentime" type="java.lang.String">
-            <column name="OPENTIME" length="20" />
+            <column name="OPENTIME" length="500" />
         </property>
         <property name="location" type="java.lang.String">
-            <column name="LOCATION" length="20" />
+            <column name="LOCATION" length="500" />
         </property>
         <property name="locatedescp" type="java.lang.String">
-            <column name="LOCATEDESCP" length="20" />
+            <column name="LOCATEDESCP" length="500" />
         </property>
         <property name="attachment" type="java.lang.String">
-            <column name="ATTACHMENT" length="20" />
+            <column name="ATTACHMENT" length="100" />
         </property>
         <set name="books" inverse="true">
             <key>

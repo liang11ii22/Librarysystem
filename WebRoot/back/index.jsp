@@ -44,7 +44,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="shortcut icon" href="img/favicon.ico">
 
 </head>
-
+<%
+  		String msg = (String)request.getAttribute("msg");
+  		if(msg != null){
+  			out.print("<script>window.alert('"+msg+"');</script>");
+  			request.removeAttribute(msg);
+  		}
+   %>
 <body>
     <!-- topbar starts -->
     <div class="navbar navbar-default" role="navigation">
@@ -138,7 +144,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </li>
                         <!-- <li><a class="ajax-link" href="form.jsp"><i
                                     class="glyphicon glyphicon-edit"></i><span> Forms</span></a></li> -->
-                        <li><a class="ajax-link" href="chart.jsp"><i class="glyphicon glyphicon-list-alt"></i><span> Charts</span></a>
+                        <li><a class="ajax-link" href="addann.jsp"><i class="glyphicon glyphicon-list-alt"></i><span> Add Announcement</span></a>
                         </li>
                         <li><a class="ajax-link" href="typography.jsp"><i class="glyphicon glyphicon-font"></i><span> Library News</span></a>
                         </li>
@@ -233,7 +239,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
 
     <div class="col-md-3 col-sm-3 col-xs-6">
-        <a data-toggle="tooltip" title="34 new." class="well top-block" href="#">
+        <a data-toggle="tooltip" title="34 new." class="well top-block" href="Announce_annList.action">
             <i class="glyphicon glyphicon-bell blue"></i>
 
             <div>Bulletin</div>

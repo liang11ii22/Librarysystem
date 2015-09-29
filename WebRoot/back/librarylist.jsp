@@ -226,7 +226,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
     </div>
     <div class="box-content">
-    <div class="alert alert-info">For help with such table please check <a href="http://datatables.net/" target="_blank">http://datatables.net/</a></div>
     <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
     <thead>
     <tr>
@@ -241,7 +240,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <tr>
         <td>${list.name } </td>
         <td class="center">${list.location }</td>
-        <td class="center">${list.breif }</td>
+        <td class="center">${list.brief }</td>
         
         <td class="center">
             <a class="btn btn-success" href="Library_viewLibDetail.action?lid=${list.id }">
@@ -280,37 +279,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div><!--/#content.col-md-0-->
 </div><!--/fluid-row-->
 
-    <!-- Ad, you can remove it -->
-    <div class="row">
-        <div class="col-md-9 col-lg-9 col-xs-9 hidden-xs">
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- Charisma Demo 2 -->
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:728px;height:90px"
-                 data-ad-client="ca-pub-5108790028230107"
-                 data-ad-slot="3193373905"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-        <div class="col-md-2 col-lg-3 col-sm-12 col-xs-12 email-subscription-footer">
-            <div class="mc_embed_signup">
-                <form action="//halalit.us3.list-manage.com/subscribe/post?u=444b176aa3c39f656c66381f6&amp;id=eeb0c04e84" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                    <div>
-                        <label>Keep up with my work</label>
-                        <input type="email" value="" name="EMAIL" class="email" placeholder="Email address" required>
-
-                        <div class="power_field"><input type="text" name="b_444b176aa3c39f656c66381f6_eeb0c04e84" tabindex="-1" value=""></div>
-                        <div class="clear"><input type="submit" value="Subscribe" name="subscribe" class="button"></div>
-                    </div>
-                </form>
-            </div>
-
-            <!--End mc_embed_signup-->
-        </div>
-
-    </div>
-    <!-- Ad ends -->
 
     <hr>
 
