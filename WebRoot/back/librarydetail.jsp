@@ -42,6 +42,101 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <!-- The fav icon -->
     <link rel="shortcut icon" href="img/favicon.ico">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxVxdhRxPd1wzPV_iPQVHH63zYq0jypBE&callback=initMap"
+        async defer></script>
+    
+    <script >
+     var library = [['SciLibrary', -33.889299, 151.191307],
+                    ['FisherLibrary', -33.886572, 151.190478],
+                    ['LawLibrary', -33.887147, 151.190724],
+                    ['MedicalLibrarry', -33.889700, 151.184768]];
+     var map;
+     function initMap() {
+    	 var directionsService = new google.maps.DirectionsService(); 
+ 	     var directionsDisplay = new google.maps.DirectionsRenderer();
+       
+       if(navigator.geolocation){
+    	   navigator.geolocation.getCurrentPosition(function (position) {
+               var coords = position.coords;
+            
+               //
+               var location = new google.maps.LatLng(coords.latitude, coords.longitude);
+               var myOptions = {
+                   zoom: 14,    
+                   center: location,  
+                   mapTypeId: google.maps.MapTypeId.ROADMAP
+               };
+               // create map
+               map = new google.maps.Map(document.getElementById('map'), myOptions);
+       
+               directionsDisplay.setMap(map);
+               
+               var start = new google.maps.LatLng(coords.latitude, coords.longitude);
+               var end = new google.maps.LatLng(-33.889299, 151.191307);
+               var request = {
+              	        origin : start,
+              	        destination : end,
+              	        travelMode : google.maps.TravelMode.WALKING
+              	    };
+              	    
+              	    directionsService.route(request, function(response, status) {
+              	        if (status == google.maps.DirectionsStatus.OK) {
+              	            directionsDisplay.setDirections(response);
+              	        }else{
+              	        	alert("Direction request failed");
+              	        }
+              	    });
+               
+               var marker = new google.maps.Marker({
+                   position: location,    
+                   map: map 
+               });
+
+               var infoWindow = new google.maps.InfoWindow({
+                   content: "position：<br/>longitude：" + location.lat() + "<br/>latitude：" + location.lng()   //提示窗体内的提示信息
+               });
+       
+               infoWindow.open(map, marker);
+              
+               
+           }, function (error) {
+  
+               switch (error.code) {
+                   case 1:
+                       alert("serveice refused。");
+                       break;
+                   case 2:
+                       alert("can not get information");
+                       break;
+                   case 3:
+                       alert("time out");
+                       break;
+                   default:
+                       alert("unkown");
+                       break;
+               }
+           }, null);
+    	   
+    	   document.getElementById('mode').addEventListener('change', function() {
+   		    calculateAndDisplayRoute(directionsService, directionsDisplay);
+   		  });
+    	   
+           
+    	   var end = new google.maps.LatLng(-33.889299, 151.191307);
+    	   
+    	   var selectedMode = document.getElementById('mode').value;
+    	   
+    	   
+   	    
+       }else{
+    	   alert("not support");
+    	   }
+	   
+   
+     } 
+     
+  
+     </script>
 
 </head>
 
@@ -134,7 +229,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <li class="nav-header">Main</li>
                         <li><a class="ajax-link" href="index.jsp"><i class="glyphicon glyphicon-home"></i><span> Dashboard</span></a>
                         </li>
-                         <li><a class="ajax-link" href="ui.jsp"><i class="glyphicon glyphicon-eye-open"></i><span> Maps</span></a>
+                         <li><a class="ajax-link" href="reservation.jsp"><i class="glyphicon glyphicon-eye-open"></i><span> Reservation</span></a>
                         </li>
                         <!-- <li><a class="ajax-link" href="form.jsp"><i
                                     class="glyphicon glyphicon-edit"></i><span> Forms</span></a></li> -->
@@ -235,7 +330,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <p class="text-left">${lib.description }</p>
                     <p class="text-justify"><strong>Location:</strong> ${lib.location }</p>
                     <!-- MAP By CunLiang -->
-                    
+                    <div>
+                    <select id="mode">
+      <option value="DRIVING">Driving</option>
+      <option value="WALKING">Walking</option>
+      <option value="BICYCLING">Bicycling</option>
+      <option value="TRANSIT">Transit</option>
+    </select>
+                    </div>
+                    <div id="map" style="width: 500px; height: 300px;">  
+             
+        			</div>  
                     
                     <!-- MAP End -->
                     <button type="submit" class="btn btn-info" >Return</button>

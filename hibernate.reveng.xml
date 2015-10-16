@@ -49,7 +49,12 @@
 			<generator class="increment"></generator>
 		</primary-key>
 	</table>
-<table name="ANNOUNCE" schema="LKJ" class="com.dtos.Announce">
+	<table name="ANNOUNCE" schema="LKJ" class="com.dtos.Announce">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+<table name="RESERVATION" schema="LKJ" class="com.dtos.Reservation">
 	<primary-key>
 		<generator class="increment"></generator>
 	</primary-key>

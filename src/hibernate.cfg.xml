@@ -6,23 +6,20 @@
 <hibernate-configuration>
 
 	<session-factory>
-		<property name="dialect">
-			org.hibernate.dialect.Oracle9Dialect
-		</property>
-		<property name="connection.url">
-			jdbc:oracle:thin:@localhost:1521:orcl
-		</property>
+		<property name="dialect">org.hibernate.dialect.Oracle9Dialect</property>
+		<property name="connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>
 		<property name="connection.username">lkj</property>
 		<property name="connection.password">lkj</property>
-		<property name="connection.driver_class">
-			oracle.jdbc.driver.OracleDriver
-		</property>
-		<property name="myeclipse.connection.profile">test</property>
+		<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="myeclipse.connection.profile">orcl</property>
 		<mapping resource="com/dtos/Admin.hbm.xml" />
 		<mapping resource="com/dtos/Book.hbm.xml" />
 		<mapping resource="com/dtos/Category.hbm.xml" />
 		<mapping resource="com/dtos/SchoolLib.hbm.xml" />
 		<mapping resource="com/dtos/Announce.hbm.xml" />
+		<mapping resource="com/dtos/Reservation.hbm.xml" />
+
+
 
 	</session-factory>
 

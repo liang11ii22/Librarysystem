@@ -140,7 +140,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <li class="nav-header">Main</li>
                         <li><a class="ajax-link" href="index.jsp"><i class="glyphicon glyphicon-home"></i><span> Dashboard</span></a>
                         </li>
-                         <li><a class="ajax-link" href="ui.jsp"><i class="glyphicon glyphicon-eye-open"></i><span> Maps</span></a>
+                         <li><a class="ajax-link" href="reservation.jsp"><i class="glyphicon glyphicon-eye-open"></i><span> Reservation</span></a>
                         </li>
                         <!-- <li><a class="ajax-link" href="form.jsp"><i
                                     class="glyphicon glyphicon-edit"></i><span> Forms</span></a></li> -->

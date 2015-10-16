@@ -26,6 +26,9 @@
 			<result name="announcelist">/back/anntable.jsp</result>
 			<result name="anndetail">/back/anndetails.jsp</result>
 		</action>
+		<action name="Reservation_*" class="com.action.ReservationAction" method="{1}">
+			<result name="updateReservation">/back/addreservation.jsp</result>
+		</action>
 	</package>
 
 

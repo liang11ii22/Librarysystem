@@ -31,7 +31,5 @@
 			<attribute name="owner.project.facets" value="me.hibernate"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Package_1/fileupload/commons-fileupload-1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Package_1/fileupload/commons-io-1.2.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>
