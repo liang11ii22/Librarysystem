@@ -8,7 +8,7 @@ import java.util.Set;
  * Admin entity. @author MyEclipse Persistence Tools
  */
 
-public class Admin implements java.io.Serializable {
+public class Admin {
 
 	// Fields
 

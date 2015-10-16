@@ -3,11 +3,38 @@
 <struts>
 
 	<package name="Admin" extends="struts-default">
+	
+	
+	<action name="User_*" method="{1}" class="com.action.UserAction">
+		<result name="addusers" type="chain">User_addNewUser</result>
+		<result name="newuser">/index.jsp</result>
+	</action>
+	<action name="Reservation_*" method="{1}" class="com.action.ReservationAction">
+		<result name="jumptobook">/seatreservation.jsp</result>
+		<result name="bookbefore">/index.jsp</result>
+	</action>
+	
+	<action name="BookComm_*"  method="{1}" class="com.action.BookCommsAction">
+		<result name="addcomms" type="chain">BookComm_viewBookDetail1</result>
+		<result name="addcommsrep" type="chain">BookComm_viewBookDetail2</result>
+		<result name="addcommsjump">/singlebookdetailfront.jsp</result>
+	</action>
+	
+	<action name="Email_*" method="{1}" class="com.action.EmailAction">
+		<result name="success">/login.jsp</result>
+		
+	</action>
+	
+	<action name="Message_*" method="{1}" class="com.action.MessageAction">
+		<result name="addmsg">/index.jsp</result>
+	</action>
 
 
 		<action name="login_*" class="com.action.LoginAction" method="{1}">
 			<result name="adminlogin">/back/index.jsp</result>
 			<result name="loginerror">/back/login.jsp</result>
+			<result name="userlogin">/index.jsp</result>
+			<result name="userloginerror">/login.jsp</result>
 		</action>
 		<action name="Library_*" class="com.action.LibraryAction" method="{1}">
 			<result name="liblist">/back/librarylist.jsp</result>
@@ -17,14 +44,26 @@
 			<result name="addbookjump">/back/addbook.jsp</result>
 			<result name="booklist" type="chain">Book_showBookList</result>
 			<result name="showbooklist">/back/booktable.jsp</result>
+			<result name="showbooklist_front">/wholebooklist.jsp</result>
 			<result name="bookdetails">/back/bookdetail.jsp</result>
 			<result name="singbooklist">/back/singlebooklist.jsp</result>
 			<result name="uodatebookdetail">/back/updatebook.jsp</result>
+			<result name="singlebooklist_front">/singlebookfront.jsp</result>
+			<result name="bookdetail_front">/singlebookdetailfront.jsp</result>
 		</action>
 		<action name="Announce_*" class="com.action.AnnounceAction" method="{1}">
 			<result name="mainpage">/back/index.jsp</result>
 			<result name="announcelist">/back/anntable.jsp</result>
 			<result name="anndetail">/back/anndetails.jsp</result>
+			<result name="front_annlist">/annlist.jsp</result>
+			<result name="front_anndetail">/anndetail.jsp</result>
+		</action>
+		
+		<action name="BorrowReturn_*" class="com.action.BorrowReturnAction" method="{1}">
+			<result name="borrowfail">/singlebookdetailfront.jsp</result>
+			<result name="borrowsuccess">/singlebookdetailfront.jsp</result>
+			<result name="borrowlist">/checkborrowbooklist.jsp</result>
+			<result name="returnbook" type="chain">BorrowReturn_checkBorrowList</result>
 		</action>
 	</package>
 

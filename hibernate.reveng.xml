@@ -49,7 +49,29 @@
 			<generator class="increment"></generator>
 		</primary-key>
 	</table>
-<table name="ANNOUNCE" schema="LKJ" class="com.dtos.Announce">
+	<table name="ANNOUNCE" schema="LKJ" class="com.dtos.Announce">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="BORROWRETURN" schema="LKJ"
+		class="com.dtos.BorrowReturn">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="CONSULTCOMMS_S" schema="LKJ"
+		class="com.dtos.BookComms">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="MESSAGES" schema="LKJ" class="com.dtos.Messages">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+<table name="RESERVATION" schema="LKJ" class="com.dtos.Reservation">
 	<primary-key>
 		<generator class="increment"></generator>
 	</primary-key>

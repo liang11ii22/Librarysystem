@@ -229,9 +229,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
     <thead>
     <tr>
-        <th>The Name Of Library</th>
-        <th>Library Location</th>
-        <th>Libiary discription</th>
+        <th>Title</th>
+        <th>Update Time</th>
+        <th>Contents</th>
+        <th>Adminstrator's name</th>
         <th>Actions</th>
     </tr>
     </thead>

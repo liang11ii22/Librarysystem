@@ -21,6 +21,7 @@ public class SchoolLib  {
 	private String locatedescp;
 	private String attachment;
 	private Set books = new HashSet(0);
+	private Set reservations = new HashSet(0);
 
 	// Constructors
 
@@ -31,7 +32,7 @@ public class SchoolLib  {
 	/** full constructor */
 	public SchoolLib(String name, String description, String brief,
 			String opentime, String location, String locatedescp,
-			String attachment, Set books) {
+			String attachment, Set books, Set reservations) {
 		this.name = name;
 		this.description = description;
 		this.brief = brief;
@@ -40,6 +41,7 @@ public class SchoolLib  {
 		this.locatedescp = locatedescp;
 		this.attachment = attachment;
 		this.books = books;
+		this.reservations = reservations;
 	}
 
 	// Property accessors
@@ -116,6 +118,14 @@ public class SchoolLib  {
 
 	public void setBooks(Set books) {
 		this.books = books;
+	}
+
+	public Set getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(Set reservations) {
+		this.reservations = reservations;
 	}
 
 }

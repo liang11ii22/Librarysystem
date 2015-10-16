@@ -9,23 +9,32 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
+import com.daos.BookCommsDao;
 import com.daos.BookDao;
 import com.daos.CategoryDao;
 import com.daos.LibraryDao;
+import com.daos.impl.BookCommsDaoImpl;
 import com.daos.impl.BookDaoImpl;
 import com.daos.impl.CategoryDaoImpl;
 import com.daos.impl.LibraryDaoImpl;
 import com.dtos.Book;
+import com.dtos.BookComms;
 import com.dtos.Category;
 import com.dtos.SchoolLib;
+import com.dtos.Users;
 import com.opensymphony.xwork2.ActionSupport;
+import com.util.HibernatePage;
 
 public class BookAction extends ActionSupport{
 	private Book book;
 	private BookDao bdao = new BookDaoImpl();
 	private CategoryDao cdao = new CategoryDaoImpl();
 	private LibraryDao ldao = new LibraryDaoImpl();
+	private BookCommsDao bookcommDao = new BookCommsDaoImpl();
 	private File myfile;
 	private String myfileContentType;
 	private String myfileFileName;
@@ -33,6 +42,7 @@ public class BookAction extends ActionSupport{
 	private String savepath;
 	private int bid;
 	private String characters;
+	private int cpage;
 	
 	public Book getBook() {
 		return book;
@@ -90,6 +100,14 @@ public class BookAction extends ActionSupport{
 	public void setCharacters(String characters) {
 		this.characters = characters;
 	}
+	
+	
+	public int getCpage() {
+		return cpage;
+	}
+	public void setCpage(int cpage) {
+		this.cpage = cpage;
+	}
 	public String addBookJump(){
 		List<Category> catelist = cdao.queryAll("from Category");
 		List<SchoolLib> liblist = ldao.queryAll("from SchoolLib");
@@ -117,16 +135,18 @@ public class BookAction extends ActionSupport{
 
 		
 		Category c = cdao.queryName("Category", book.getCategory().getName());
-		SchoolLib l = ldao.queryName("SchoolLib", book.getSchoollib().getName());
+		SchoolLib l = ldao.queryName("SchoolLib", book.getSchoolLib().getName());
+		System.out.println(l.getName());
 		b.setName(book.getName());
 		System.out.println("Book"+book.getName());
 		b.setAuthor(book.getAuthor());
 		b.setBrief(book.getBrief());
 		b.setCategory(c);
-		b.setSchoollib(l);
+		b.setSchoolLib(l);
 		b.setDescp(book.getDescp());
 		b.setPublishment(book.getPublishment());
 		b.setPublishdate(book.getPublishdate());
+		b.setTotalbook(book.getTotalbook());
 		try {
 			FileUtils.copyFile(myfile, new File(file, myfileFileName));
 			FileInputStream fin = new FileInputStream(newfile);
@@ -147,39 +167,51 @@ public class BookAction extends ActionSupport{
 	}
 	
 	public String showBookList(){
-		List<String>slist = new ArrayList<String>();
-		for(int i = 65; i<91; i++){
-			slist.add(String.valueOf((char)i));
+		List<String> slist = new ArrayList<String>();
+		for (int i = 65; i < 91; i++) {
+			slist.add(String.valueOf((char) i));
 		}
-		ServletActionContext.getRequest().getSession().setAttribute("slist", slist);
-		List<Book> booklistA = bdao.queryAll("select u from Book u where u.name like 'A%'");
-		List<Book> booklistB = bdao.queryAll("select u from Book u where u.name like 'B%'");
-		List<Book> booklistC = bdao.queryAll("select u from Book u where u.name like 'C%'");
-		List<Book> booklistD = bdao.queryAll("select u from Book u where u.name like 'D%'");
-		List<Book> booklistE = bdao.queryAll("select u from Book u where u.name like 'E%'");
-		List<Book> booklistF = bdao.queryAll("select u from Book u where u.name like 'F%'");
-		List<Book> booklistG = bdao.queryAll("select u from Book u where u.name like 'G%'");
-		List<Book> booklistH = bdao.queryAll("select u from Book u where u.name like 'H%'");
-		List<Book> booklistI = bdao.queryAll("select u from Book u where u.name like 'I%'");
-		List<Book> booklistJ = bdao.queryAll("select u from Book u where u.name like 'J%'");
-		List<Book> booklistK = bdao.queryAll("select u from Book u where u.name like 'K%'");
-		ServletActionContext.getRequest().getSession().setAttribute("booklistA", booklistA);
-		ServletActionContext.getRequest().getSession().setAttribute("booklistB", booklistB);
-		ServletActionContext.getRequest().getSession().setAttribute("booklistC", booklistC);
-		ServletActionContext.getRequest().getSession().setAttribute("booklistD", booklistD);
-		ServletActionContext.getRequest().getSession().setAttribute("booklistE", booklistE);
-		ServletActionContext.getRequest().getSession().setAttribute("booklistF", booklistF);
-		ServletActionContext.getRequest().getSession().setAttribute("booklistG", booklistG);
-		ServletActionContext.getRequest().getSession().setAttribute("booklistH", booklistH);
-		ServletActionContext.getRequest().getSession().setAttribute("booklistI", booklistI);
-		ServletActionContext.getRequest().getSession().setAttribute("booklistJ", booklistJ);
-		ServletActionContext.getRequest().getSession().setAttribute("booklistK", booklistK);
-		return "showbooklist";
+		ServletActionContext.getRequest().getSession()
+				.setAttribute("slist", slist);
+
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		Session session = sf.openSession();
+		if (cpage <= 0) {
+			cpage = 1;
+		}
+		int curpage = cpage;// 当前页
+		int pagesize = 2;// 每页显示数
+	   
+		
+		List<Book> booklistA = HibernatePage.findOnePage(session,"select u from Book u order by name", curpage, pagesize);
+
+    	ServletActionContext.getRequest().getSession().setAttribute("booklistA", booklistA);
+
+		Users u = (Users) ServletActionContext.getRequest().getSession().getAttribute("user");
+		if(u !=null){
+			return "showbooklist_front";
+		}else{
+			return "showbooklist";
+		}
+		
 	}
+	
+	
 	
 	public String viewBookDetail(){
 		Book bookdetail = bdao.queryOne("Book", bid);
 		ServletActionContext.getRequest().getSession().setAttribute("bookdetail", bookdetail);
+		List<BookComms> listbc = bookcommDao.BookCommsList(bid);
+		ServletActionContext.getRequest().getSession().setAttribute("comm", listbc);
+		ServletActionContext.getRequest().getSession().setAttribute("count", listbc.size());
+		Users u = (Users) ServletActionContext.getRequest().getSession().getAttribute("user");
+		if(u !=null){
+			if(bookdetail.getTotalbook() != 0){
+				ServletActionContext.getRequest().getSession().setAttribute("state","Unavailable");
+			}
+			ServletActionContext.getRequest().getSession().setAttribute("state","Available");
+			return "bookdetail_front";
+		}
 		return "bookdetails";
 		
 	}
@@ -188,6 +220,10 @@ public class BookAction extends ActionSupport{
 		List<Book>listbooks = bdao.queryAll("select u from Book u where u.name like '"+characters+"%'");
 		ServletActionContext.getRequest().getSession().setAttribute("listbooks", listbooks);
 		ServletActionContext.getRequest().getSession().setAttribute("chatacter", characters);
+		Users u = (Users) ServletActionContext.getRequest().getSession().getAttribute("user");
+		if(u !=null){
+			return "singlebooklist_front";
+		}
 		return "singbooklist";
 	}
 	
@@ -219,14 +255,14 @@ public class BookAction extends ActionSupport{
 
 		
 		Category c = cdao.queryName("Category", book.getCategory().getName());
-		SchoolLib l = ldao.queryName("SchoolLib", book.getSchoollib().getName());
+		SchoolLib l = ldao.queryName("SchoolLib", book.getSchoolLib().getName());
 		b.setId(b1.getId());
 		b.setName(book.getName());
 		System.out.println("Book"+book.getName());
 		b.setAuthor(book.getAuthor());
 		b.setBrief(book.getBrief());
 		b.setCategory(c);
-		b.setSchoollib(l);
+		b.setSchoolLib(l);
 		b.setDescp(book.getDescp());
 		b.setPublishment(book.getPublishment());
 		b.setPublishdate(book.getPublishdate());

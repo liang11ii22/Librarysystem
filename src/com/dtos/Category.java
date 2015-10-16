@@ -8,7 +8,7 @@ import java.util.Set;
  * Category entity. @author MyEclipse Persistence Tools
  */
 
-public class Category implements java.io.Serializable {
+public class Category  {
 
 	// Fields
 

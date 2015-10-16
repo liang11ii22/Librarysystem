@@ -1,6 +1,6 @@
 package com.dtos;
 
-import java.math.BigDecimal;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,11 +8,11 @@ import java.util.Set;
  * Depart entity. @author MyEclipse Persistence Tools
  */
 
-public class Depart implements java.io.Serializable {
+public class Depart{
 
 	// Fields
 
-	private BigDecimal id;
+	private Integer id;
 	private String name;
 	private Set userses = new HashSet(0);
 
@@ -30,16 +30,17 @@ public class Depart implements java.io.Serializable {
 
 	// Property accessors
 
-	public BigDecimal getId() {
-		return this.id;
-	}
-
-	public void setId(BigDecimal id) {
-		this.id = id;
-	}
-
+	
 	public String getName() {
 		return this.name;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public void setName(String name) {

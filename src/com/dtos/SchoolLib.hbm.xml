@@ -37,5 +37,12 @@
             </key>
             <one-to-many class="com.dtos.Book" />
         </set>
+        
+        <set name="reservations" inverse="true">
+            <key>
+                <column name="L_ID" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.dtos.Reservation" />
+        </set>
     </class>
 </hibernate-mapping>

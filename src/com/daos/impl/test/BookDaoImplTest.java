@@ -42,9 +42,10 @@ public class BookDaoImplTest {
 //
 	@Test
 	public void testQueryAll() {
-		List<Book> booklistA = bdao.queryAll("select u from Book u where u.name like 'A%'");
+		List<Book> booklistA = bdao.queryAll("select u from com.dtos.Book u where u.name like 'A%'");
+		//System.out.println(booklistA.size());
 		for(int i = 0;i<booklistA.size();i++){
-			System.out.println(booklistA.get(i).getSchoollib().getName()+"   "+booklistA.get(i).getName());
+			System.out.println(booklistA.get(i).getSchoolLib().getName()+"   "+booklistA.get(i).getName());
 		}
 	}
 //

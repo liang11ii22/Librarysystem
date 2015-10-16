@@ -219,7 +219,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <td class="center" width="150px">${list.name }</td>
                             <td class="center" width="100">${list.author }</td>
                             <td class="center" width="200">${list.publishment }</td>
-                            <td class="center" width="200">${list.schoollib.name }</td>
+                            <td class="center" width="200">${list.schoolLib.name }</td>
 							<td class="center">
 							<a class="btn btn-success" href="Book_viewBookDetail.action?bid=${list.id }"><i class="glyphicon glyphicon-zoom-in icon-white"></i> View
 							</a> <a class="btn btn-info" href="#"> <i class="glyphicon glyphicon-edit icon-white"></i> Edit

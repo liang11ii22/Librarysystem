@@ -13,6 +13,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css'>
 <link href="./css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css'>
+<link href="./css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!--slider-->
 <link href="./css/slider.css" rel="stylesheet" type="text/css" media="all"/>
 <script type="text/javascript" src="./js/jquery-1.9.0.min.js"></script>
@@ -48,8 +51,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<ul>
 			    <li class='active'><a href='index.jsp'><span>Home</span></a></li>
 			    <li><a href='about.jsp'><span>About</span></a></li>
-			    <li><a href='staff.jsp'><span>Staff</span></a></li>
-			    <li class='has-sub'><a href='service.jsp'><span>Services</span></a></li>
+			    <li><a href='BorrowReturn_checkBorrowList.action'><span>Check you own book list</span></a></li>
+			   <li><a href='Reservation_checkSeat.action'><span>Book A Seat</span></a></li>
 			    <li class='last'><a href='contact.jsp'><span>Contact</span></a></li>
 			 	<div class="clear"></div>
 			 </ul>
@@ -81,8 +84,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<!------End Slider ------------>
 		<div class="grids_1_of_3">
 				<div class="grid_1_of_3 images_1_of_3">
-					  <img src="./images/icon1.jpg">
-					  <h3>Check Book List</h3>
+					  <a href="Book_showBookList.action"><img src="./images/icon1.jpg">
+					  <h3>Check Book List</h3></a>
 					  <p></p>
 				</div>
 				<div class="grid_1_of_3 images_1_of_3">
@@ -91,8 +94,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  <p></p>
 				</div>
 				<div class="grid_1_of_3 images_1_of_3">
-					  <img src="./images/icon3.jpg">
-					  <h3>Check you own book list</h3>
+					  <a href="Announce_annList.action"><img src="./images/icon3.jpg">
+					  <h3>Announcement</h3></a>
 					  <p></p>
 				</div>
 				<div class="clear"></div>
@@ -104,10 +107,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="wrap">
 <div class="main">
 	<div class="content">
-		<h2>what our customer says</h2>
-		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing</h3>
-		<p><a href="details.html"><img src="./images/pic1.jpg"></a> Cadipisicing elit,Nam ornare vulputate risus,id volutpat elit porttitor non.In consequat nisi vel lectus dapibus sodales.Nam ornare vulputate risus, id volutpat elit porttitor non. In consequat nisi vel lectus dapibus sodales.Nam ornare vulputate risus, id volutpat elit porttitor non. In consequat nisi vel lectus dapibus sodales.Nam ornare vulputate risus, id volutpat elit porttitor non. In consequat nisi vel lectus dapibus sodales. Pellentesque habitant morbi tristique senectus Nam ornare vulputate risus, id volutpat elit porttitor non. In consequat nisi vel lectus dapibus sodales. PellentesqueNam ornare vulputate risus, id volutpat elit porttitor non. In consequat nisi vel lectus dapibus sodales. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas Pellentesque habitant morbi tristique senectus et netus et malesuada fames. sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Nam ornare vulputate risus,id volutpat elit porttitor non. In consequat nisi vel lectus dapibus sodales.Nam ornare vulputate risus, id volutpat elit porttitor non.</p>
-		<div class="clear"></div>
+		<!-- Alert -->
+                         <div class="alert alert-danger alert-dismissable hide" id="notify">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong>Your borrow book will be due in several days, please return them on time!</strong>
+                        </div>
+                        <script type="text/javascript">
+                        
+                            $("#${alertRegister}").attr("class","alert alert-danger");
+                            //window.alert("${alertRegister}");
+                        </script>
+					 <!-- ---------------------------------- -->
 	</div>
 </div>
 </div>

@@ -1,6 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -12,10 +10,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>The Public-Library Website Template | Contact :: w3layouts</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css'>
 <link href="./css/style.css" rel="stylesheet" type="text/css" media="all" />
+ 
 </head>
+<%
+  		String msg = (String)request.getAttribute("msg");
+  		if(msg != null){
+  			out.print("<script>window.alert('"+msg+"');</script>");
+  			request.removeAttribute(msg);
+  		}
+   %>
 <body>
+ <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
+ <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
 <div class="btm_border">
 <div class="h_bg">
 <div class="wrap">
@@ -42,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			    <li><a href='about.jsp'><span>About</span></a></li>
 			    <li><a href='staff.jsp'><span>Staff</span></a></li>
 			    <li class='has-sub'><a href='service.jsp'><span>Services</span></a></li>
-			    <li class='active' class='last'><a href='contact.jsp'><span>Contact</span></a></li>
+			    <li class='active' class='last'><a href='Email_sendEmail.action'><span>Contact</span></a></li>
 			 	<div class="clear"></div>
 			 </ul>
 	</div>
@@ -63,26 +72,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="main">
 	<div class="contact">
 		<div class="section group">				
-						
+							
 				<div class="col span_2_of_4">
 				  <div class="contact-form">
-				  	<h2 class="style">User Sign Up</h2>
-					       <form method="post" action="contact-post.jsp">
-					    	<div>
-						    	<span><label>NAME</label></span>
-						    	<span><input name="userName" type="text" class="textbox"></span>
-						    </div>
-						   
-						   <div>
-						     	<span><label>PASSWPRD</label></span>
-						    	<span><input name="password" type="password" class="textbox"></span>
-						    </div>
-						   
-						   <div>
-						   		<span><input type="submit" value="Submit me"></span>
-						  </div>
-					    </form>
-				    </div>
+								<h2 class="style">User Login</h2>
+								<form method="post" action="login_userLogin.action">
+									<div class="form-group">
+										<input
+											type="text" class="form-control" id="exampleInputEmail1"
+											placeholder="Username" name="user.name">
+									</div>
+									<div class="form-group">
+										<input
+											type="password" class="form-control"
+											id="exampleInputPassword1" placeholder="Password" name="user.password">
+									</div>
+									<div>
+										<span><input type="submit" value="Submit"></span>
+									</div>
+								</form>
+							</div>
   				</div>		
   			<div class="clear"></div>
 		  </div>

@@ -215,17 +215,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  </c:forEach></p>
                     <table class="table">
                         <tbody>
-                        <tr>
-                        	<td><strong>A</strong></td>
-                        	<td></td>
-                        	<td></td><td></td><td></td>
-                        </tr>
+                       
                         <c:forEach var="list" items="${booklistA}">
                         <tr>
                             <td class="center" width="100">${list.name }</td>
-                            <td class="center" width="100">${list.author }</td>
-                            <td class="center" width="200">${list.publishment }</td>
-                            <td class="center" width="150">${list.schoollib.name }</td>
+                            <td class="center" width="150">${list.author }</td>
+                            <td class="center" width="290">${list.publishment }</td>
+                            <td class="center" width="150">${list.schoolLib.name }</td>
 							<td class="center">
 							<a class="btn btn-success" href="Book_viewBookDetail.action?bid=${list.id }"><i class="glyphicon glyphicon-zoom-in icon-white"></i> View
 							</a> <a class="btn btn-info" href="Book_updateBook.action?bid=${list.id }"> <i class="glyphicon glyphicon-edit icon-white"></i> Edit
@@ -234,29 +230,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</tr>
                        </c:forEach>
                        
-                       <tr>
-                        	<td><strong>B</strong></td>
-                        </tr>
-                        <c:forEach var="list" items="${booklistB}">
-                        <tr>
-                            <td>${list.name }</td>
-                            <td class="center">${list.author }</td>
-                            <td class="center">${list.publishment }</td>
-                            <td class="center">${list.schoollib.name }</td>
-                        </tr>
-                       </c:forEach>
+                      
                         </tbody>
                     </table>
+                     <div align="center">
                     <ul class="pagination pagination-centered">
-                        <li><a href="#">Prev</a></li>
-                        <li class="active">
-                            <a href="#">1</a>
-                        </li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">Next</a></li>
+                        <li><a href="Book_showBookList.action?cpage=${cpage-1}" name="cpage">Prev</a></li>
+                        <li><a href="Book_showBookList.action?cpage=${cpage}">${cpage}</a></li>
+                        <li><a href="Book_showBookList.action?cpage=${cpage+1}" name="cpage">Next</a></li>
                     </ul>
+                    </div>
                 </div>
             </div>
      
