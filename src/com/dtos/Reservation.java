@@ -1,72 +1,110 @@
 package com.dtos;
 
-import java.math.BigDecimal;
-
 /**
  * Reservation entity. @author MyEclipse Persistence Tools
  */
 
-public class Reservation{
+public class Reservation  {
 
 	// Fields
 
 	private Integer id;
-	private Integer seat;
-	private Integer sid;
-	private Integer status;
-	private Integer library;
+	private SchoolLib schoolLib;
+	private Users users;
+	private String seat;
+	public String getSeat() {
+		return seat;
+	}
 
-	// Constructors
 
-	/** full constructor */
-	public Reservation(int seat, Integer sid, int status,
-			int library) {
+	public void setSeat(String seat) {
 		this.seat = seat;
-		this.sid = sid;
-		this.status = status;
-		this.library = library;
+	}
+
+	private String state;
+	private String period;// morning/afternoon/evening
+	private String time; //yy/mm/dd
+	private int version;
+	
+	public Reservation(){
+		
+	}
+
+	
+	/** full constructor */
+	public Reservation(SchoolLib schoolLib, Users users, String seat, String state,
+			String period, String time, int version) {
+		this.schoolLib = schoolLib;
+		this.users = users;
+		this.seat = seat;
+		this.state = state;
+		this.period = period;
+		this.time = time;
+		this.version = version;
 	}
 
 	// Property accessors
 
+	
+
+	public SchoolLib getSchoolLib() {
+		return this.schoolLib;
+	}
+
+	public void setSchoolLib(SchoolLib schoolLib) {
+		this.schoolLib = schoolLib;
+	}
+
+	public Users getUsers() {
+		return this.users;
+	}
+
+	public void setUsers(Users users) {
+		this.users = users;
+	}
+
+	
+
 	public Integer getId() {
-		return this.id;
+		return id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getSeat() {
-		return this.seat;
+	
+
+	public String getState() {
+		return state;
 	}
 
-	public void setSeat(int seat) {
-		this.seat = seat;
+	public void setState(String state) {
+		this.state = state;
 	}
 
-	public long getSid() {
-		return this.sid;
+	public String getPeriod() {
+		return this.period;
 	}
 
-	public void setSid(Integer sid) {
-		this.sid = sid;
+	public void setPeriod(String period) {
+		this.period = period;
 	}
 
-	public int getStatus() {
-		return this.status;
+	public String getTime() {
+		return this.time;
 	}
 
-	public void setStatus(int status) {
-		this.status = status;
+	public void setTime(String time) {
+		this.time = time;
+	}
+	
+	public int getVersion() {
+		return this.version;
 	}
 
-	public int getLibrary() {
-		return this.library;
-	}
-
-	public void setLibrary(int library) {
-		this.library = library;
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 }

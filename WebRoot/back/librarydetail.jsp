@@ -72,7 +72,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                directionsDisplay.setMap(map);
                
                var start = new google.maps.LatLng(coords.latitude, coords.longitude);
+               
                var end = new google.maps.LatLng(-33.889299, 151.191307);
+               // libray address
+               
+               
+               
+               
+               
+               
+               
                var request = {
               	        origin : start,
               	        destination : end,
@@ -329,18 +338,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <p class="text-left"><strong>Open Time:</strong> ${lib.opentime }</p>
                     <p class="text-left">${lib.description }</p>
                     <p class="text-justify"><strong>Location:</strong> ${lib.location }</p>
-                    <!-- MAP By CunLiang -->
-                    <div>
-                    <select id="mode">
-      <option value="DRIVING">Driving</option>
-      <option value="WALKING">Walking</option>
-      <option value="BICYCLING">Bicycling</option>
-      <option value="TRANSIT">Transit</option>
-    </select>
-                    </div>
+     
+     				<!-- MAP Start -->
                     <div id="map" style="width: 500px; height: 300px;">  
              
-        			</div>  
+        			</div>
+        			<br>  
                     
                     <!-- MAP End -->
                     <button type="submit" class="btn btn-info" >Return</button>

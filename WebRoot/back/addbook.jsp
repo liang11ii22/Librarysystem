@@ -35,10 +35,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<!-- jQuery -->
 	<script src="bower_components/jquery/jquery.min.js"></script>
+	
 	<script type="text/javascript" src="js/bootstrap3-validation.js"></script>
 
 
-	<!-- Function validate -->
+	
+
+    <!-- The fav icon -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+</head>
+<!-- Function validate -->
 	<script type="text/javascript">
 	$(function(){
 	    //1. 简单写法：
@@ -71,12 +78,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 	}
 </script>
-
-    <!-- The fav icon -->
-    <link rel="shortcut icon" href="img/favicon.ico">
-
-</head>
-
 <body>
     <!-- topbar starts -->
     <div class="navbar navbar-default" role="navigation">
@@ -229,22 +230,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <!-- content starts -->
             
 
-<div>
-    <ul class="breadcrumb">
-        <li>
-            <a href="#">Home</a>
-        </li>
-        <li>
-            <a href="#">Blank</a>
-        </li>
-    </ul>
-</div>
+
 
 <div class="row">
     <div class="box col-md-12">
         <div class="box-inner">
             <div class="box-header well" data-original-title="">
-                <h2><i class="glyphicon glyphicon-star-empty"></i> Blank</h2>
+                <h2><i class="glyphicon glyphicon-star-empty"></i> Add Book</h2>
 
                 <div class="box-icon">
                     <a href="#" class="btn btn-setting btn-round btn-default"><i
@@ -256,34 +248,59 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
             </div>
             <div class="box-content">
-                <!-- Add book start -->
-                 
+            
+            
+            
+            
+            
+            
+            
+            
+
+    <!-- 水平排列的表单 -->
+      
+    <div class="container">
+    <div class="col-sm-12 control-label">
+     <br>
+    </div>
+    
      <form class="form-horizontal"  id="form1" action="Book_addBook.action" role="form" enctype="multipart/form-data" method="post">
      
-
-      <div class="form-group">
-        <label for="name" class="col-sm-2 control-label">The Title Of Book</label>
+       <div class="form-group">
+        
+        
+      </div>
+     
+     	  <div class="form-group">
+        <label for="name" class="col-sm-3 control-label">The Title Of Book</label>
         <div class="col-sm-6">
           <input type="text" class="form-control" id="name" check-type="required" required-message="Please Full In The Book's Title" name="book.name">
         </div>
       </div>
-       
-       <div class="form-group">
-        <label for="name" class="col-sm-2 control-label">The Author Of The Book</label>
+     
+     
+      <div class="form-group">
+        <label for="name" class="col-sm-3 control-label">The Author Of Book</label>
         <div class="col-sm-6">
           <input type="text" class="form-control" id="name" check-type="required" required-message="Please Full In The Book's Author" name="book.author">
         </div>
       </div>
       <div class="form-group">
-        <label for="name" class="col-sm-2 control-label">The Publishment Of The Book</label>
+        <label for="name" class="col-sm-3 control-label">The Publishment Of Book</label>
         <div class="col-sm-6">
           <input type="text" class="form-control" id="name" check-type="required" required-message="Please Full In The Book's Publishment" name="book.publishment">
         </div>
       </div>
       <div class="form-group">
-        <label for="name" class="col-sm-2 control-label">The Category Of The Book</label>
-        	
-										<div class="form-group">
+        <label for="name" class="col-sm-3 control-label">Total Number of Book</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="name" check-type="number" required-message="Please Full In The Book's Publishment" name="book.totalbook" value="1">
+        </div>
+      </div>
+     <div class="form-group">
+        <label for="name" class="col-sm-3 control-label">The Category Of Book</label>
+        	<div class="col-md-6 col-sm-6">
+										
 											<select class="form-control" name="book.category.name" id="book.category.name">
 											<c:forEach var="catelist" items="${catelist}">
 												<option>${catelist.name }</option>
@@ -291,34 +308,151 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</select>
 										</div>
      </div>
-     
      <div class="form-group">
-        <label for="name" class="col-sm-2 control-label">The Library Contains The Book</label>
+        <label for="name" class="col-sm-3 control-label">The Library Contains The Book</label>
         	
-										<div class="form-group">
-											<select class="form-control" name="book.schoollib.name" id="book.schoollib.name">
+										<div class="col-md-6 col-sm-6">
+											<select class="form-control" name="book.schoolLib.name" id="book.schoolLib.name">
 											<c:forEach var="liblist" items="${liblist}">
 												<option>${liblist.name }</option>
 												</c:forEach>
 											</select>
-										</div>
+											</div>
+										
      </div>
       <div class="form-group">
-        <label for="name" class="col-sm-2 control-label">The Date Of Book Publishment</label>
+        <label for="name" class="col-sm-3 control-label">The Date Of Book Publishment</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="name" check-type="required" required-message="Please Full In The Book's Publishment Date" name="book.publishdate">
+        </div>
+      </div>
+     
+     
+      <div class="form-group">
+        <label for="vercode" class="col-sm-3 control-label">Brief Description</label>
+        <div class="col-sm-6">
+          <textarea  class="form-control" id="vercode" check-type="required" rows="3" name="book.brief"></textarea>
+          
+        </div>
+      </div> 
+     
+     
+     
+       <div class="form-group">
+        <label for="vercode" class="col-sm-3 control-label">Summary</label>
+        <div class="col-sm-6">
+          <textarea  class="form-control" id="vercode" check-type="required" rows="3" name="user.description"></textarea>
+          
+        </div>
+      </div> 
+       
+       
+       <div class="form-group ">
+         <label for="exampleInputFile" class="col-sm-3 control-label">Upload The Cover of The Book</label>
+          
+          <div class="col-md-6 col-sm-6">
+         <input type="file" id="exampleInputFile" class="form-control" check-type="required" name="myfile">
+          </div>
+        </div>
+       
+       
+
+	
+      <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-10">
+          <button type="submit" id="submit1" class="btn btn-primary col-sm-2">Submit</button>
+          <button type="reset"  class="btn btn-primary col-sm-2">Reset</button>
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+  </div>          
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                <!-- Add book start
+                 <div align="center">
+     <form class="form-horizontal"  id="form1" action="Book_addBook.action" role="form" enctype="multipart/form-data" method="post">
+     
+
+      <div class="form-group">
+        <label for="name" class="col-sm-4 control-label">The Title Of Book</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="name" check-type="required" required-message="Please Full In The Book's Title" name="book.name">
+        </div>
+      </div>
+       
+       <div class="form-group">
+        <label for="name" class="col-sm-4 control-label">The Author Of The Book</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="name" check-type="required" required-message="Please Full In The Book's Author" name="book.author">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="name" class="col-sm-4 control-label">The Publishment Of The Book</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="name" check-type="required" required-message="Please Full In The Book's Publishment" name="book.publishment">
+        </div>
+      </div>
+     <div class="form-group">
+        <label for="name" class="col-sm-4 control-label">The Category Of The Book</label>
+        	<div class="col-md-6 col-sm-6">
+										
+											<select class="form-control" name="book.category.name" id="book.category.name">
+											<c:forEach var="catelist" items="${catelist}">
+												<option>${catelist.name }</option>
+											</c:forEach>
+											</select>
+										</div>
+     </div>
+     <div class="form-group">
+        <label for="name" class="col-sm-4 control-label">The Library Contains The Book</label>
+        	
+										<div class="col-md-6 col-sm-6">
+											<select class="form-control" name="book.schoolLib.name" id="book.schoolLib.name">
+											<c:forEach var="liblist" items="${liblist}">
+												<option>${liblist.name }</option>
+												</c:forEach>
+											</select>
+											</div>
+										
+     </div>
+      <div class="form-group">
+        <label for="name" class="col-sm-4 control-label">The Date Of Book Publishment</label>
         <div class="col-sm-6">
           <input type="text" class="form-control" id="name" check-type="required" required-message="Please Full In The Book's Publishment Date" name="book.publishdate">
         </div>
       </div>
        
         <div class="form-group ">
-          <label for="exampleInputFile">Upload The Front Cover of The Book</label>
-          <span id="files"><input type="file" id="exampleInputFile" class="form-control" check-type="required" name="myfile"></span>
-          <p class="help-block">Example block-level help text here.</p>
+         <label for="exampleInputFile" class="col-sm-4 control-label">Upload The Cover of The Book</label>
+          
+          <div class="col-md-6 col-sm-6">
+         <input type="file" id="exampleInputFile" class="form-control" check-type="required" name="myfile">
+          </div>
         </div>
 
       
        <div class="form-group">
-        <label for="vercode" class="col-sm-2 control-label">Brief Description</label>
+        <label for="vercode" class="col-sm-4 control-label">Brief Description</label>
         <div class="col-sm-6">
           <textarea  class="form-control" id="vercode" check-type="required" rows="3" name="book.brief"></textarea>
           
@@ -326,7 +460,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div> 
        
 <div class="form-group">
-        <label for="vercode" class="col-sm-2 control-label"> Description In Detail</label>
+        <label for="vercode" class="col-sm-4 control-label"> Description In Detail</label>
         <div class="col-sm-6">
           <textarea  class="form-control" id="vercode" check-type="required" rows="3" name="book.descp"></textarea>
           
@@ -334,17 +468,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div> 
 
       <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" id="submit1" class="btn btn-primary col-sm-4">Submit</button>
-          <button type="reset"  class="btn btn-primary col-sm-4">Reset</button>
+        <div class="col-sm-offset-5 col-sm-5">
+        <div align="center">
+          <button type="submit" id="submit1" class="btn btn-primary col-sm-3">Submit</button>&nbsp;&nbsp;
+          <button type="reset"  class="btn btn-primary col-sm-3">Reset</button>
         </div>
       </div>
-
+</div>
 
     </form>
     
     
-    
+    </div> -->
                 <!-- Add book end -->
                 
             </div>

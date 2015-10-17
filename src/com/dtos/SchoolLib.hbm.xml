@@ -31,11 +31,24 @@
         <property name="attachment" type="java.lang.String">
             <column name="ATTACHMENT" length="100" />
         </property>
+        <property name="lat" type="double">
+            <column name="LAT" length="100" />
+        </property>
+        <property name="lng" type="double">
+            <column name="LNG" length="100" />
+        </property>
         <set name="books" inverse="true">
             <key>
                 <column name="LID" precision="22" scale="0" />
             </key>
             <one-to-many class="com.dtos.Book" />
+        </set>
+        
+        <set name="reservations" inverse="true">
+            <key>
+                <column name="L_ID" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.dtos.Reservation" />
         </set>
     </class>
 </hibernate-mapping>

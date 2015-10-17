@@ -18,9 +18,28 @@ public class SchoolLib  {
 	private String brief;
 	private String opentime;
 	private String location;
+	public double getLat() {
+		return lat;
+	}
+
+	public void setLat(double lat) {
+		this.lat = lat;
+	}
+
+	public double getLng() {
+		return lng;
+	}
+
+	public void setLng(double lng) {
+		this.lng = lng;
+	}
+
 	private String locatedescp;
 	private String attachment;
+	private double lat;
+	private double lng;
 	private Set books = new HashSet(0);
+	private Set reservations = new HashSet(0);
 
 	// Constructors
 
@@ -31,7 +50,7 @@ public class SchoolLib  {
 	/** full constructor */
 	public SchoolLib(String name, String description, String brief,
 			String opentime, String location, String locatedescp,
-			String attachment, Set books) {
+			String attachment, double lat, double lng, Set books, Set reservations) {
 		this.name = name;
 		this.description = description;
 		this.brief = brief;
@@ -39,7 +58,10 @@ public class SchoolLib  {
 		this.location = location;
 		this.locatedescp = locatedescp;
 		this.attachment = attachment;
+		this.lat = lat;
+		this.lng = lng;
 		this.books = books;
+		this.reservations = reservations;
 	}
 
 	// Property accessors
@@ -116,6 +138,14 @@ public class SchoolLib  {
 
 	public void setBooks(Set books) {
 		this.books = books;
+	}
+
+	public Set getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(Set reservations) {
+		this.reservations = reservations;
 	}
 
 }

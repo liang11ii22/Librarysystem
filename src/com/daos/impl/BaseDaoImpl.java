@@ -49,7 +49,7 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 		try{
 			session = HibernateHelp.getSession();
 			ts = session.beginTransaction();
-			session.merge(t);
+			session.update(t);
 			ts.commit();
 			
 		}catch(Exception d){

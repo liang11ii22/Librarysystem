@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -219,14 +220,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="form-group">
         <label for="name" class="col-sm-2 control-label">Seat No.</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" id="name" check-type="required" required-message="Please Full In The Book's Title" name="book.name">
+          <input type="text" class="form-control" id="name" check-type="required" placeholder="Seat No." >
         </div>
       </div>
        
        <div class="form-group">
-        <label for="name" class="col-sm-2 control-label">Student ID</label>
+        <label for="name" class="col-sm-2 control-label">User ID</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" id="name" check-type="required" required-message="Please Full In The Book's Author" name="book.author">
+          <input type="text" class="form-control" id="name" check-type="required" placeholder="User ID" >
         </div>
       </div>
       <div class="form-group">
@@ -239,15 +240,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <label for="name" class="col-sm-2 control-label">Library</label>
        <div class="col-sm-6">
          <select class="form-control">
-         <option>Library 1</option>
-         <option>Library 2</option>
-         <option>3</option>
-         <option>4</option>
-         <option>5</option>
+         <c:forEach var="liblist" items="${liblist}">
+			<option>${liblist.name }</option>
+		 </c:forEach>
        </select>
         </div>
       </div>
-  
+      <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Period</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="name" check-type="required" placeholder="Period" >
+        </div>
+      </div>
+  	  <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Date</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="name" check-type="required" placeholder="Date" >
+        </div>
+      </div>
 
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #MyEclipse Hibernate Properties
 #Thu Oct 15 21:00:34 EST 2015
 genBasicCompId=false
@@ -18,3 +19,25 @@ genAnnotations=false
 reSettingsFile=/TestBoots/hibernate.reveng.xml
 configFile=/TestBoots/src/hibernate.cfg.xml
 createConfigFile=true
+=======
+#MyEclipse Hibernate Properties
+#Fri Oct 16 15:32:23 EST 2015
+genBasicCompId=false
+sessionFactoryName=
+profile=
+daoSFId=
+jndiPath=
+detectM2M=true
+reStrategyClass=
+detectO2O=true
+springDaoFile=
+useJavaTypes=false
+keyGenerator=increment
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+genAnnotations=false
+reSettingsFile=/TestBoots/hibernate.reveng.xml
+configFile=/TestBoots/src/hibernate.cfg.xml
+createConfigFile=true
+>>>>>>> branch 'master' of https://github.com/liang11ii22/Librarysystem.git

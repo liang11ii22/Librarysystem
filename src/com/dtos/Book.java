@@ -1,25 +1,31 @@
 package com.dtos;
 
-
+import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Book entity. @author MyEclipse Persistence Tools
  */
 
-public class Book{
+public class Book implements java.io.Serializable {
 
 	// Fields
 
 	private Integer id;
 	private Category category;
-	private SchoolLib schoollib;
+	private SchoolLib schoolLib;
 	private String name;
-	private String brief;
 	private String descp;
 	private String author;
 	private String publishment;
 	private String attachment;
+	private String brief;
 	private String publishdate;
+	private Integer totalbook;
+	private Set borrowreturn = new HashSet(0);
+	private Set bookcomms = new HashSet(0);
+
 	//private Set returnBorrows = new HashSet(0);
 
 	// Constructors
@@ -29,10 +35,11 @@ public class Book{
 	}
 
 	/** full constructor */
-	public Book(Category category, SchoolLib schoollib, String name, String descp,
-			String author, String publishment, String attachment, String brief, String publishdate) {
+	public Book(Category category, SchoolLib schoolLib, String name,
+			String descp, String author, String publishment, String attachment,
+			String brief, String publishdate, Integer totalbook, Set borrowreturn, Set bookcomms) {
 		this.category = category;
-		this.schoollib = schoollib;
+		this.schoolLib = schoolLib;
 		this.name = name;
 		this.descp = descp;
 		this.author = author;
@@ -40,18 +47,13 @@ public class Book{
 		this.attachment = attachment;
 		this.brief = brief;
 		this.publishdate = publishdate;
-		//this.returnBorrows = returnBorrows;
+		this.totalbook = totalbook;
+		this.borrowreturn = borrowreturn;
+		this.bookcomms = bookcomms;
+		
 	}
 
 	// Property accessors
-
-	
-
-	public Category getCategory() {
-		return this.category;
-	}
-
-	
 
 	public Integer getId() {
 		return id;
@@ -61,18 +63,21 @@ public class Book{
 		this.id = id;
 	}
 
+	public Category getCategory() {
+		return this.category;
+	}
+
+
 	public void setCategory(Category category) {
 		this.category = category;
 	}
 
-	
-
-	public SchoolLib getSchoollib() {
-		return schoollib;
+	public SchoolLib getSchoolLib() {
+		return this.schoolLib;
 	}
 
-	public void setSchoollib(SchoolLib schoollib) {
-		this.schoollib = schoollib;
+	public void setSchoolLib(SchoolLib schoolLib) {
+		this.schoolLib = schoolLib;
 	}
 
 	public String getName() {
@@ -116,7 +121,7 @@ public class Book{
 	}
 
 	public String getBrief() {
-		return brief;
+		return this.brief;
 	}
 
 	public void setBrief(String brief) {
@@ -124,19 +129,37 @@ public class Book{
 	}
 
 	public String getPublishdate() {
-		return publishdate;
+		return this.publishdate;
 	}
 
 	public void setPublishdate(String publishdate) {
 		this.publishdate = publishdate;
 	}
 
-//	public Set getReturnBorrows() {
-//		return this.returnBorrows;
-//	}
-//
-//	public void setReturnBorrows(Set returnBorrows) {
-//		this.returnBorrows = returnBorrows;
-//	}
+	public Integer getTotalbook() {
+		return totalbook;
+	}
+
+	public void setTotalbook(Integer totalbook) {
+		this.totalbook = totalbook;
+	}
+
+	public Set getBorrowreturn() {
+		return borrowreturn;
+	}
+
+	public void setBorrowreturn(Set borrowreturn) {
+		this.borrowreturn = borrowreturn;
+	}
+
+	public Set getBookcomms() {
+		return bookcomms;
+	}
+
+	public void setBookcomms(Set bookcomms) {
+		this.bookcomms = bookcomms;
+	}
+
+	
 
 }

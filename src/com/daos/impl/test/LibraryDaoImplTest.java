@@ -55,7 +55,7 @@ public void setLdao(LibraryDao ldao) {
 //	}
 @Test
 public void testQueryName() {
-	SchoolLib l = ldao.queryName("SchoolLib", "sciTechnology");
+	SchoolLib l = ldao.queryName("SchoolLib", "SciTech Library");
 	System.out.println(l.getName());
 }
 

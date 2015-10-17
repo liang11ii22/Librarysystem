@@ -9,14 +9,15 @@ public class UserDaoImpl extends BaseDaoImpl<Users> implements UserDao{
 
 	@Override
 	public Users loginUser(Users user) {
-		Users u = null;
-		String hql =  "from Users where name='"
-				+ user.getName() + "' and password='" + user.getPassword() + "'";
+		
+		String hql = "select a from com.dtos.Users a where a.name='"+user.getName()+"' and a.password='" +user.getPassword()+ "'";
 		List<Users>list = this.queryAll(hql);
 		if(list != null && list.size()>0){
-			u = list.get(0);
-		}
-		return u;
+			
+			 return list.get(0);
+		}else
+			return null;
+		
 	}
 
 	@Override

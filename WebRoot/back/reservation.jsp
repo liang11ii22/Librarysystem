@@ -211,12 +211,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </li>
         </ul>
     </div>
+    
+    <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Period</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="name" check-type="required" placeholder="Period" >
+        </div>
+      </div>
+  	  <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Date</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="name" check-type="required" placeholder="Date" >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button class="btn btn-primary col-sm-4">Query</button>
+        </div>
+      </div>
+    
 <table class="table">
-   <caption>Reservation</caption>
    <thead>
       <tr>
          <th>Seats NO.</th>
-         <th>SID</th>
          <th>Status</th>
          <th>Library</th>
          <th>Reserve</th>

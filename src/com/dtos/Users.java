@@ -8,12 +8,12 @@ import java.util.Set;
  * Users entity. @author MyEclipse Persistence Tools
  */
 
-public class Users implements java.io.Serializable {
+public class Users{
 
 	// Fields
 
-	private BigDecimal id;
-	private Depart depart;
+	private Integer id;
+	//private Depart depart;
 	private String name;
 	private String password;
 	private String tel;
@@ -21,7 +21,11 @@ public class Users implements java.io.Serializable {
 	private String bookid;
 	private String email;
 	private String description;
-	private Set returnBorrows = new HashSet(0);
+	private Set borrowreturn = new HashSet(0);
+	private Set bookcomms = new HashSet(0);
+	private Set message = new HashSet(0);
+	private Set reservations = new HashSet(0);
+
 
 	// Constructors
 
@@ -29,16 +33,12 @@ public class Users implements java.io.Serializable {
 	public Users() {
 	}
 
-	/** minimal constructor */
-	public Users(Depart depart) {
-		this.depart = depart;
-	}
+	
 
 	/** full constructor */
-	public Users(Depart depart, String name, String password, String tel,
-			String attachment, String bookid, String email, String description,
-			Set returnBorrows) {
-		this.depart = depart;
+	public Users(String name, String password, String tel,
+			String attachment, String bookid, String email, String description,Set borrowreturn, Set bookcomms, Set message,Set reservations) {
+		//this.depart = depart;
 		this.name = name;
 		this.password = password;
 		this.tel = tel;
@@ -46,26 +46,35 @@ public class Users implements java.io.Serializable {
 		this.bookid = bookid;
 		this.email = email;
 		this.description = description;
-		this.returnBorrows = returnBorrows;
+		this.borrowreturn = borrowreturn;
+		this.bookcomms = bookcomms;
+		this.message = message;
+		this.reservations = reservations;
 	}
 
 	// Property accessors
 
-	public BigDecimal getId() {
-		return this.id;
+	
+
+//	public Depart getDepart() {
+//		return this.depart;
+//	}
+
+	public Integer getId() {
+		return id;
 	}
 
-	public void setId(BigDecimal id) {
+
+
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public Depart getDepart() {
-		return this.depart;
-	}
 
-	public void setDepart(Depart depart) {
-		this.depart = depart;
-	}
+//
+//	public void setDepart(Depart depart) {
+//		this.depart = depart;
+//	}
 
 	public String getName() {
 		return this.name;
@@ -123,12 +132,52 @@ public class Users implements java.io.Serializable {
 		this.description = description;
 	}
 
-	public Set getReturnBorrows() {
-		return this.returnBorrows;
+
+
+	public Set getBorrowreturn() {
+		return borrowreturn;
 	}
 
-	public void setReturnBorrows(Set returnBorrows) {
-		this.returnBorrows = returnBorrows;
+
+
+	public void setBorrowreturn(Set borrowreturn) {
+		this.borrowreturn = borrowreturn;
+	}
+
+
+
+	public Set getBookcomms() {
+		return bookcomms;
+	}
+
+
+
+	public void setBookcomms(Set bookcomms) {
+		this.bookcomms = bookcomms;
+	}
+
+
+
+	public Set getMessage() {
+		return message;
+	}
+
+
+
+	public void setMessage(Set message) {
+		this.message = message;
+	}
+
+
+
+	public Set getReservations() {
+		return reservations;
+	}
+
+
+
+	public void setReservations(Set reservations) {
+		this.reservations = reservations;
 	}
 
 }

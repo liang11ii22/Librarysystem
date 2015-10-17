@@ -6,8 +6,11 @@
 <hibernate-configuration>
 
 	<session-factory>
-		<property name="dialect">org.hibernate.dialect.Oracle9Dialect</property>
-		<property name="connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>
+		<property name="dialect">org.hibernate.dialect.OracleDialect</property>
+		<property name="connection.url">
+			jdbc:oracle:thin:@localhost:1521:orcl
+		</property>
+
 		<property name="connection.username">lkj</property>
 		<property name="connection.password">lkj</property>
 		<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
@@ -17,9 +20,11 @@
 		<mapping resource="com/dtos/Category.hbm.xml" />
 		<mapping resource="com/dtos/SchoolLib.hbm.xml" />
 		<mapping resource="com/dtos/Announce.hbm.xml" />
+		<mapping resource="com/dtos/Users.hbm.xml" />
+		<mapping resource="com/dtos/BorrowReturn.hbm.xml" />
+		<mapping resource="com/dtos/BookComms.hbm.xml" />
+		<mapping resource="com/dtos/Messages.hbm.xml" />
 		<mapping resource="com/dtos/Reservation.hbm.xml" />
-
-
 
 	</session-factory>
 

@@ -6,7 +6,7 @@
 -->
 <hibernate-mapping>
     <class name="com.dtos.Depart" table="DEPARTMENT" schema="LKJ">
-        <id name="id" type="big_decimal">
+        <id name="id" type="java.lang.Integer">
             <column name="ID" precision="22" scale="0" />
             <generator class="in"></generator>
         </id>
